@@ -24,6 +24,11 @@
         type: Number,
       }
     },
+    data() {
+      return {
+        observer: null,
+      }
+    },
     methods: {
       calculate() {
         let element = this.$el;
@@ -49,6 +54,21 @@
     },
     mounted() {
       this.calculate();
+
+      if ('MutationObserver' in window && this.observer === null) {
+        // Create the observer (and what to do on changes...)
+        this.observer = new MutationObserver(this.calculate);
+
+        // Setup the observer
+        this.observer.observe(
+          this.$el,
+          { subtree: true, characterData: true }
+        );
+      }
+    },
+    beforeDestroy: function() {
+      // Clean up
+      this.observer.disconnect();
     }
   }
 </script>
