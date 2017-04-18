@@ -9,7 +9,11 @@ TODO make compiled version for use without build tools
 
 ## Browser support
 
-Chrome OSX (57.0.2987.133)
+| Browser         | Tested version          |
+|-----------------|-------------------------|
+| Chrome (OSX)    | 57.0.2987.133           |
+| Safari          | 9.1 (10601.5.17.4)      |
+| Firefox (OSX)   | 44.0.2                  |
 
 TODO test other browsers
 
